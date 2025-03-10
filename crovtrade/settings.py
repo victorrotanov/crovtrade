@@ -13,11 +13,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-sx(@j#4kxlqfw$&_*_p6behd)(hhl#a*jc8n&-%b9^6y7=cbef'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False   
+DEBUG = False
 
 ALLOWED_HOSTS = ['5.35.44.16',
                  'localhost',
                  '127.0.0.1',
+                 'crovtrade.kz',
+                 'www.crovtrade.kz',
                  ]
 
 
