@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .styled-table {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background-color: white;
+        border: 2px solid #cad4dd;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px auto;
+    }
+
+    .styled-table thead {
+        background-color: #cad4dd;
+        color: #1a2b50;
+        font-weight: bold;
+    }
+
+    .styled-table th {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #cad4dd;
+        font-size: 16px;
+    }
+
+    .styled-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #cad4dd;
+        font-size: 16px;
+        vertical-align: top;
+        text-align: left;
+    }
+
+    th.table-header {
+        background-color: #cad4dd;
+        color: #1a2b50;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 16px;
+        text-align: center;
+        border-bottom-right-radius: 45px;
+        width: max-content;
+        margin: 0 auto;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+
+</style>
+
+<br><br>
+<h1 style="color: #1a2b50;">Строительные смеси</h1>
+
+{% for product in Product %}
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th colspan="3" class="table-header">{{ product.title }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2" style="width: 20%;">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.title }}"
+                    style="max-width: 100%; height: auto; border-radius: 5px;">
+                {% endif %}
+            </td>
+            <td style="width: 50%;">
+                <div style="text-align: center; font-weight: bold;">Характеристики</div>
+            </td>
+            <td style="width: 30%;">
+                <div style="text-align: center; font-weight: bold;">Цены</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ product.description|safe }}
+            </td>
+            <td>{{ product.price|safe }}</td>
+        </tr>
+    </tbody>
+</table>
+{% endfor %}
+
+{% endblock %}

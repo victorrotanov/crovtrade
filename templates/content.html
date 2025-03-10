@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<br>
+<h1 style="color: #1a2b50;">Новости</h1>
+
+{% for item in News %}
+<div class="news-block">
+    <div class="news-header">{{ item.title }}</div>
+    <div class="news-content">
+        <br>
+        <br>
+        {% if item.image %}
+        <img src="{{ item.image.url }}" alt="{{ item.title }}"
+            style="max-width: 100%; height: auto; border-radius: 5px;">
+        {% endif %}
+        <br>
+        <br>
+        <p>{{ item.content|safe }}</p>
+        <code style="float: right;">{{ item.created_at }}</code>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
