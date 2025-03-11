@@ -13,15 +13,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-sx(@j#4kxlqfw$&_*_p6behd)(hhl#a*jc8n&-%b9^6y7=cbef'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['5.35.44.16',
-                 'localhost',
+ALLOWED_HOSTS = ['localhost',
                  '127.0.0.1',
                  'crovtrade.kz',
                  'www.crovtrade.kz',
                  ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1",
+    "http://localhost",
+    "https://crovtrade.kz",
+    "https://www.crovtrade.kz",
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
